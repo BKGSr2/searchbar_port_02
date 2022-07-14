@@ -1,10 +1,9 @@
 import React from "react";
 export function SearchBars(props) {
   return (
-    <>
-      <div onClick={props.onClick}>
+    <div>
+      <div onClick={props.onClick} className="search-bars">
         <input
-          className="search-bars"
           type="search"
           list="datalist1"
           placeholder="city, country code"
@@ -31,9 +30,8 @@ export function SearchBars(props) {
           value={`${props.nameValues[4]} (${props.countryStateValues[4]})`}
         />
       </datalist>
-      <div onClick={props.onClick}>
+      <div onClick={props.onClick} className="search-bars">
         <input
-          className="search-bars"
           type="text"
           placeholder="zip code"
           value={props.zipVal}
@@ -42,7 +40,6 @@ export function SearchBars(props) {
           name="zipCode"
         />
       </div>
-      <button onClick={props.currentLoc}>Get my current location, please!</button>
-    </>
+    </div>
   );
 }

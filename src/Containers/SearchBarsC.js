@@ -181,8 +181,8 @@ export function SearchBarsC(props) {
                 `${locationData.byName[4].state}, ${locationData.byName[4].country}`
               ]
         }
-        currentLoc={currentLocation}
       />
+      <button onClick={currentLocation} className="search-bars">Get my current location, please!</button>
       <input //could move this back to SearchBars.js and make it possible to press enter after typing in location in order to submit form. Takes second prio to español expansion though, depends.
         className="search-bars"
         type="submit"

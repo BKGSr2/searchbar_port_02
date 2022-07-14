@@ -166,11 +166,11 @@ export const ShowDayAndWeek = ({ data }) => {
                 {getLocalTime(4).format("h A")}
               </div>
 
-              <div className="w-20 p-1">{weatherMoji(0)}</div>
-              <div className="w-20 p-1">{weatherMoji(1)}</div>
-              <div className="w-20 p-1">{weatherMoji(2)}</div>
-              <div className="w-20 p-1">{weatherMoji(3)}</div>
-              <div className="w-20 p-1">{weatherMoji(4)}</div>
+              <div className="iconry w-20 p-1">{weatherMoji(0)}</div>
+              <div className="iconry w-20 p-1">{weatherMoji(1)}</div>
+              <div className="iconry w-20 p-1">{weatherMoji(2)}</div>
+              <div className="iconry w-20 p-1">{weatherMoji(3)}</div>
+              <div className="iconry w-20 p-1">{weatherMoji(4)}</div>
 
               <div className="w-20 p-1 bigTemp">{`${Math.round(
                 data.list[0].main.temp

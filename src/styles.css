@@ -2,15 +2,14 @@
     font-family: sans-serif;
     text-align: center;
     color: #fff;
-    background-color: #3e80e2;
+    background-color: #B7C6CB;
     align-items: center;
   }
   
   .search-bars {
-    /*need to center on page (horizontal)*/
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    margin-left: .5vw;
+    margin-right: .5vw;
     border-radius: 10px;
   }
   
@@ -44,3 +43,6 @@
     font-size: 1.2rem;
   }
   
+  .iconry {
+    font-size: 1.6rem;
+  } /*yes, I know it's lazy, I just don't care.*/
