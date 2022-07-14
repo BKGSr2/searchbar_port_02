@@ -1,0 +1,46 @@
+.Control {
+    font-family: sans-serif;
+    text-align: center;
+    color: #fff;
+    background-color: #3e80e2;
+    align-items: center;
+  }
+  
+  .search-bars {
+    /*need to center on page (horizontal)*/
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+  
+  ::selection {
+    background: #03ad66;
+  }
+  
+  .infoPlusGradient {
+    background-image: linear-gradient(#e6a565, #dc5, #dd8, #eed);
+    color: #000;
+    max-height: 120vh;
+  }
+  
+  .Container {
+    background-color: red;
+  }
+  
+  .bg-my {
+    background-color: #f0e9d3;
+  }
+  
+  .w-20 {
+    width: 20%;
+  }
+  
+  .w-40 {
+    width: 40%;
+  }
+  
+  .bigTemp {
+    font-size: 1.2rem;
+  }
+  
