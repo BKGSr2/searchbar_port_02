@@ -24,3 +24,4 @@ yarn-error.log*
 
 # me
 src/config.json
+src/config.yml
