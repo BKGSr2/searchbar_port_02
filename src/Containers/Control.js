@@ -1,9 +1,10 @@
+/*require('dotenv').config()*/
+
 import "../styles.css";
 import { useState, useEffect } from "react";
 import { SearchBarsC } from "./SearchBarsC.js";
 import { ShowDayAndWeek } from "./ShowDayAndWeek.js";
 import axios from "axios";
-const keys = require('../config.json')
 
 export default function Control() {
   const [locationData, setLocationData] = useState({});
@@ -12,7 +13,7 @@ export default function Control() {
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${locationData.lat}&lon=${locationData.lon}&appid=${keys.API_KEY}&units=imperial`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${locationData.lat}&lon=${locationData.lon}&appid=${process.env.REACT_APP_API_KEY}&units=imperial`
       )
       .then((response) => {
         console.log("Api Data Fetched");

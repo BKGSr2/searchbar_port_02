@@ -1,7 +1,6 @@
 import { SearchBars } from "../Presentational/SearchBars.js";
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-const keys = require('../config.json');
 //const fs = require('fs');
 //const yaml = require('js-yaml');
 
@@ -49,8 +48,8 @@ export function SearchBarsC(props) {
     axios
       .get(
         firstDisabled
-          ? `https://api.openweathermap.org/geo/1.0/zip?zip=${zipChange}&appid=${keys.API_KEY}`
-          : `https://api.openweathermap.org/geo/1.0/direct?q=${locChange}&limit=5&appid=${keys.API_KEY}`
+          ? `https://api.openweathermap.org/geo/1.0/zip?zip=${zipChange}&appid=${process.env.REACT_APP_API_KEY}`
+          : `https://api.openweathermap.org/geo/1.0/direct?q=${locChange}&limit=5&appid=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         console.log(response.data);
@@ -99,7 +98,7 @@ export function SearchBarsC(props) {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         axios
-          .get(`http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=1&appid=${keys.API_KEY}`)
+          .get(`http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=1&appid=${process.env.REACT_APP_API_KEY}`)
           .then((response) => {
             /*new Promise(()=> {
               setUserInput({...userInput, location: response.data[0].state})

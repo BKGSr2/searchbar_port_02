@@ -3,6 +3,6 @@
 
 get data based on entered location / zipcode / current location
 
-change the file name of src/config_sample.json to config.json and put in your own API key. Get one by making an account at [Open Weather](https://openweathermap.org/)
+The API key is an environment variable. Get the key by making an account at [Open Weather](https://openweathermap.org/)
 
-ReactJS application
+To use your API key, put a .env file in the root directory (searchbar_port) and type REACT_APP_API_KEY=```{your key}```
