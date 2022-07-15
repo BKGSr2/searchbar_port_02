@@ -35,7 +35,7 @@ export function SearchBars(props) {
           type="text"
           placeholder="zip code"
           value={props.zipVal}
-          disabled={props.secondDisabled}
+          disabled={!props.firstDisabled}
           onChange={props.onChange}
           name="zipCode"
         />

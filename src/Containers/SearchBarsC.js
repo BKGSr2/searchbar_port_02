@@ -25,7 +25,7 @@ export function SearchBarsC(props) {
   });
 
   const dataSet = (
-    //sets the data in LocationData
+    //sets the data in locationData
     firstAdd = locationData.byName,
     secondAdd = locationData.byZip
   ) => {
@@ -45,7 +45,6 @@ export function SearchBarsC(props) {
     locChange = userInput.location,
     zipChange = userInput.zipCode
   ) => {
-    //else if(userInput.zip){}
     //also, if(!userInput){console.log("enter a value first, please."); return;}
     axios
       .get(
@@ -60,17 +59,9 @@ export function SearchBarsC(props) {
           console.log("zip API call went through");
           //if zip is selected.
           dataSet(undefined, response.data); //puts data in byZip
-          /*setLocationData({
-            ...locationData,
-            zipData: { ...response.data }
-          });*/
           return;
         } //if zip is not selected.
         dataSet(response.data); //puts data in byName
-        /*setLocationData({
-          ...locationData,
-          ...response.data
-        });*/
       })
       .catch((error) => {
         console.log("api error: (ethan)");
@@ -99,6 +90,11 @@ export function SearchBarsC(props) {
     return () => clearTimeout(waitForTyper);
   }, [userInput, stableGetter]);
 
+  const stableCurrentLoc = useCallback(() => currentLocation(), [])
+  useEffect(() => { //last minute add-on
+    currentLocation();
+  }, [stableCurrentLoc])
+
   const currentLocation = () => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -109,8 +105,9 @@ export function SearchBarsC(props) {
               setUserInput({...userInput, location: response.data[0].state})
             })
             .finally(()=>{*/
+            //setUserInput({...userInput, location: ""})
               dataSet(response.data); //simple, doesn't really work, but I'm not wasting any more time on this. fin
-            //}) //this promise doesn't actually work because setUserInput triggers useEffect, which calls getLocationData() and re-renders, which incidentally calls dataSet again. Editing this is such a pain.
+            //}) //this promise doesn't actually work because setUserInput triggers useEffect, which calls getLocationData() and re-renders, which incidentally calls dataSet again. Painful.
             
           })
           .catch((error) => {
@@ -152,7 +149,6 @@ export function SearchBarsC(props) {
         locVal={userInput.location}
         zipVal={userInput.zipCode}
         nameValues={
-          //["one", "two", "three", "four", "five"]
           firstDisabled
             ? [null, null, null, null, null]
             : [
@@ -164,13 +160,6 @@ export function SearchBarsC(props) {
               ]
         }
         countryStateValues={
-          /*[
-            `state1, country1`,
-            `state2, country2`,
-            `state3, country3`,
-            `state4, country4`,
-            `state5, country5`
-          ]*/
           firstDisabled
             ? [null, null, null, null, null]
             : [
@@ -183,7 +172,7 @@ export function SearchBarsC(props) {
         }
       />
       <button onClick={currentLocation} className="search-bars">Get my current location, please!</button>
-      <input //could move this back to SearchBars.js and make it possible to press enter after typing in location in order to submit form. Takes second prio to español expansion though, depends.
+      <input //could move this back to SearchBars.js and make it possible to press enter after typing in location in order to submit form.
         className="search-bars"
         type="submit"
         onClick={(event) => {

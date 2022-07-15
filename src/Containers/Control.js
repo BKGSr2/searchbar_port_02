@@ -4,7 +4,6 @@ import { SearchBarsC } from "./SearchBarsC.js";
 import { ShowDayAndWeek } from "./ShowDayAndWeek.js";
 import axios from "axios";
 const keys = require('../config.json')
-//idea: with extra time, add a spanish version. The geocoding API supports it, and lat/lon works regardless.
 
 export default function Control() {
   const [locationData, setLocationData] = useState({});
@@ -58,7 +57,7 @@ export default function Control() {
         )}
 
         <ShowDayAndWeek data={apiData} />
-        {/*much easier because there is absolutely NO interactivity with user.
+        {/*much easier because there is absolutely NO interactivity with user (?).
       might add a feature where you can set what day is being displayed on the left by clicking it on the right.*/}
       </section>
     </div>
